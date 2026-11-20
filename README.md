@@ -13,3 +13,4 @@ Proyecto Final Jovenes CreaTIvos
 # NovaBooks - Accesorios Literarios  
 ## Caracteristicas  
 - Catalogo interactivo  
+- Recomendador IA literario  
