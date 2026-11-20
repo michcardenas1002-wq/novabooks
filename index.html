@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaBooks | Accesorios Literarios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header con navegación responsive -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo">📚 NovaBooks</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav class="nav" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#ia-recomendador">Asistente IA</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#admin" class="btn-nav-admin">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sección Inicio / Landing -->
+    <section id="inicio" class="hero">
+      <div class="container hero-content">
+        <h1>Eleva tu experiencia de lectura con NovaBooks</h1>
+        <p>Descubre marcapáginas artesanales, fundas protectoras y lámparas diseñadas para amantes de los libros.</p>
+        <a href="#catalogo" class="btn-primary">Explorar Catálogo</a>
+      </div>
+    </section>
+
+    <!-- Sección Catálogo (Se llena dinámicamente con JS) -->
+    <section id="catalogo" class="section">
+      <div class="container">
+        <h2 class="section-title">Nuestro Catálogo</h2>
+        <p class="section-subtitle">Accesorios seleccionados para cuidar y acompañar tus lecturas.</p>
+        <div class="catalog-grid" id="catalog-grid">
+          <!-- Las cards se generan desde app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección IA Aplicada: Recomendador Literario -->
+    <section id="ia-recomendador" class="section bg-alt">
+      <div class="container ai-box">
+        <h2 class="section-title">🤖 Recomendador Literario IA</h2>
+        <p class="section-subtitle">Dinos qué sueles leer y nuestra IA te sugerirá el accesorio ideal.</p>
+        
+        <form id="ai-form" class="ai-form">
+          <div class="form-group">
+            <label for="genre-select">¿Cuál es tu género literario favorito?</label>
+            <select id="genre-select" required>
+              <option value="">Selecciona una opción...</option>
+              <option value="fantasia">Fantasía y Ciencia Ficción</option>
+              <option value="romance">Romance y Drama</option>
+              <option value="estudio">Estudio, Ensayo o No Ficción</option>
+              <option value="terror">Terror y Misterio</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="habit-select">¿Dónde prefieres leer?</label>
+            <select id="habit-select" required>
+              <option value="">Selecciona una opción...</option>
+              <option value="noche">En la cama antes de dormir</option>
+              <option value="transporte">En el transporte o cafeterías</option>
+              <option value="escritorio">En mi escritorio subrayando ideas</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Generar Recomendación</button>
+        </form>
+
+        <div id="ai-result" class="ai-result hidden">
+          <!-- Resultado generado por app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Contacto con Validación en Tiempo Real -->
+    <section id="contacto" class="section">
+      <div class="container contact-container">
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-subtitle">¿Buscas un diseño personalizado o pedidos al por mayor? Escríbenos.</p>
+        
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" placeholder="Ej. Camila Gómez" required>
+            <small class="error-msg" id="name-error"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="camila@correo.com" required>
+            <small class="error-msg" id="email-error"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" rows="4" placeholder="Cuéntanos qué accesorio te interesa..." required></textarea>
+            <small class="error-msg" id="message-error"></small>
+          </div>
+
+          <button type="submit" class="btn-primary">Enviar Mensaje</button>
+          <p id="form-success" class="success-msg hidden">✅ ¡Mensaje enviado! Nos pondremos en contacto pronto.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Sección Panel Admin (Login + Gestión de Catálogo) -->
+    <section id="admin" class="section bg-alt">
+      <div class="container admin-container">
+        <h2 class="section-title">Panel de Administración</h2>
+        
+        <!-- Formulario de Login -->
+        <div id="admin-login-box" class="admin-card">
+          <p>Inicia sesión para gestionar el inventario de NovaBooks (Demo: <strong>admin</strong> / <strong>1234</strong>)</p>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="admin-user">Usuario</label>
+              <input type="text" id="admin-user" required>
+            </div>
+            <div class="form-group">
+              <label for="admin-pass">Contraseña</label>
+              <input type="password" id="admin-pass" required>
+            </div>
+            <button type="submit" class="btn-primary">Ingresar</button>
+            <small class="error-msg" id="login-error"></small>
+          </form>
+        </div>
+
+        <!-- Zona Privada de Gestión (Oculta hasta iniciar sesión) -->
+        <div id="admin-dashboard" class="admin-card hidden">
+          <div class="admin-header">
+            <h3>Gestión de Productos</h3>
+            <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+          </div>
+          
+          <form id="add-product-form" class="add-product-form">
+            <input type="text" id="prod-title" placeholder="Nombre del accesorio" required>
+            <input type="number" id="prod-price" placeholder="Precio (COP)" required>
+            <input type="text" id="prod-desc" placeholder="Descripción corta" required>
+            <button type="submit" class="btn-primary">+ Agregar al Catálogo</button>
+          </form>
+
+          <ul id="admin-product-list" class="admin-list">
+            <!-- Lista gestionable generada por JS -->
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 NovaBooks - Emprendimiento Digital | Proyecto Final Jóvenes CreaTIvos</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
