@@ -3,3 +3,4 @@
 - Catalogo interactivo  
 - Recomendador IA literario  
 - Panel de administracion  
+- Validacion en tiempo real  
