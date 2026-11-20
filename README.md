@@ -6,3 +6,4 @@
 - Validacion en tiempo real  
 ## Tecnologias usadas  
 - HTML5, CSS3 y JavaScript  
+## Despliegue  
