@@ -14,3 +14,4 @@ Proyecto Final Jovenes CreaTIvos
 ## Caracteristicas  
 - Catalogo interactivo  
 - Recomendador IA literario  
+- Panel de administracion  
