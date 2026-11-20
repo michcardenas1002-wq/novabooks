@@ -12,3 +12,4 @@ Publicado en GitHub Pages
 Proyecto Final Jovenes CreaTIvos  
 # NovaBooks - Accesorios Literarios  
 ## Caracteristicas  
+- Catalogo interactivo  
